@@ -24,7 +24,7 @@ public class ImageService {
 
         Image image = new Image();
         image.setDescription(description);
-        image.setDimension(dimensions);
+        image.setDimensions(dimensions);
 
         blog.getImageList().add(image);
         blogRepository.save(blog);
@@ -42,7 +42,7 @@ public class ImageService {
 
         for(Image image: imageList)
         {
-            if(Objects.equals(image.getDimension(), screenDimensions)){
+            if(Objects.equals(image.getDimensions(), screenDimensions)){
                 count++;
             }
         }
