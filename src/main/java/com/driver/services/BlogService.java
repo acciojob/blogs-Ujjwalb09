@@ -17,10 +17,10 @@ import java.util.Optional;
 @Service
 public class BlogService {
     @Autowired
-    BlogRepository blogRepository;
+    BlogRepository blogRepository1;
 
     @Autowired
-    UserRepository userRepository;
+    UserRepository userRepository1;
 
     public Blog createAndReturnBlog(Integer userId, String title, String content) {
         //create a blog at the current time
@@ -28,11 +28,11 @@ public class BlogService {
         blog.setTitle(title);
         blog.setContent(content);
 
-        Optional<User> OptionalUser = userRepository.findById(userId);
+        Optional<User> OptionalUser = userRepository1.findById(userId);
         User user = OptionalUser.get();
 
         user.getBlogList().add(blog);
-        User savedUser = userRepository.save(user);
+        User savedUser = userRepository1.save(user);
 
         Blog savedBlog = savedUser.getBlogList().get(savedUser.getBlogList().size()-1);
 
@@ -41,6 +41,6 @@ public class BlogService {
 
     public void deleteBlog(int blogId){
         //delete blog and corresponding images
-          blogRepository.deleteById(blogId);
+          blogRepository1.deleteById(blogId);
     }
 }
