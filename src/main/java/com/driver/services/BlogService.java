@@ -36,7 +36,7 @@ public class BlogService {
 
         Blog savedBlog = savedUser.getBlogList().get(savedUser.getBlogList().size()-1);
 
-        savedBlog.setUser(user);
+        savedBlog.setUser(savedUser);
 
         return savedBlog;
     }
